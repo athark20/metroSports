@@ -62,7 +62,7 @@ export default async function ShopPage({
     }
   });
 
-  const willows = ["English Willow", "Kashmir Willow"] as const;
+  const willows = Array.from(new Set(PRODUCTS.map((p) => p.willow)));
 
   return (
     <div className="container-wide py-10 md:py-14">
@@ -80,20 +80,18 @@ export default async function ShopPage({
       <div className="grid gap-8 pt-7 lg:grid-cols-[15rem_1fr]">
         {/* filters */}
         <aside className="lg:sticky lg:top-20 lg:h-fit">
-          <FilterGroup title="Willow">
-            <FilterChip href={buildHref(sp, { willow: undefined })} active={!willow}>
-              All
-            </FilterChip>
-            {willows.map((w) => (
-              <FilterChip
-                key={w}
-                href={buildHref(sp, { willow: w })}
-                active={willow === w}
-              >
-                {w}
+          {willows.length > 1 && (
+            <FilterGroup title="Willow">
+              <FilterChip href={buildHref(sp, { willow: undefined })} active={!willow}>
+                All
               </FilterChip>
-            ))}
-          </FilterGroup>
+              {willows.map((w) => (
+                <FilterChip key={w} href={buildHref(sp, { willow: w })} active={willow === w}>
+                  {w}
+                </FilterChip>
+              ))}
+            </FilterGroup>
+          )}
 
           <FilterGroup title="Brand">
             <FilterChip href={buildHref(sp, { brand: undefined })} active={!brand}>

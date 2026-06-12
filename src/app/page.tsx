@@ -5,12 +5,10 @@ import { ProductCard } from "@/components/ProductCard";
 import { ArrowRightIcon, ShieldIcon, TruckIcon, MedalIcon, StarIcon, CheckIcon } from "@/components/icons";
 import { SITE } from "@/lib/site";
 
-const BRAND_NAMES = ["SS", "DSC", "SG", "New Balance", "TON", "Somi", "Sunridges"];
+const BRAND_NAMES = ["SS", "DSC", "SG", "New Balance", "TON", "Sunridges"];
 
 export default function HomePage() {
   const featured = getFeatured();
-  const english = PRODUCTS.filter((p) => p.willow === "English Willow").length;
-  const kashmir = PRODUCTS.filter((p) => p.willow === "Kashmir Willow").length;
 
   return (
     <>
@@ -24,14 +22,15 @@ export default function HomePage() {
         <div className="container-wide relative grid items-center gap-10 py-16 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-24">
           <div className="animate-fade-up">
             <span className="eyebrow inline-flex items-center gap-2 rounded-full border border-paper/25 px-3.5 py-1.5 text-paper/80">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold" /> Since 1969
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" /> Est. 2025 · Pune
             </span>
             <h1 className="mt-5 font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
               Bats that <span className="text-gold">find</span> the boundary
             </h1>
             <p className="mt-5 max-w-md text-base leading-relaxed text-paper/80 sm:text-lg">
-              Hand-picked English &amp; Kashmir willow from cricket&apos;s most trusted makers.
-              Knocked-in, balanced and ready to bury the bowlers.
+              Premium English willow, hand-picked by a player for ping, balance and pick-up.
+              Right now — <span className="font-semibold text-gold">every bat flat ₹10,000</span> in
+              our off-season monsoon sale.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link href="/shop" className="btn btn-gold px-7 py-3.5 text-sm">
@@ -46,9 +45,9 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <Stat value={`${PRODUCTS.length}+`} label="Bats in stock" />
+              <Stat value={`${PRODUCTS.length}`} label="Bats in stock" />
               <span className="hidden h-9 w-px bg-paper/20 sm:block" />
-              <Stat value="7" label="Premium brands" />
+              <Stat value="5" label="Trusted brands" />
               <span className="hidden h-9 w-px bg-paper/20 sm:block" />
               <div className="flex items-center gap-2">
                 <span className="flex text-gold">
@@ -149,23 +148,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ───────────────────────── CATEGORIES ───────────────────────── */}
+      {/* ───────────────────────── OFFER BANNER ───────────────────────── */}
       <section className="container-wide pb-4">
-        <div className="grid gap-5 md:grid-cols-2">
-          <CategoryCard
-            href="/shop?willow=English+Willow"
-            eyebrow="The pro's choice"
-            title="English Willow"
-            text={`${english} premium blades for the leather ball`}
-            image={featured[0].images[0]}
-          />
-          <CategoryCard
-            href="/shop?willow=Kashmir+Willow"
-            eyebrow="Everyday power"
-            title="Kashmir Willow"
-            text={`${kashmir} tough bats for tennis & soft-ball`}
-            image={PRODUCTS.find((p) => p.willow === "Kashmir Willow")?.images[0] ?? featured[1].images[0]}
-          />
+        <div className="relative overflow-hidden rounded-xl2 bg-pitch-deep text-paper">
+          <div className="pointer-events-none absolute inset-0 opacity-[0.09]" aria-hidden>
+            <div className="absolute -left-16 top-0 h-72 w-72 rounded-full bg-gold blur-3xl" />
+            <div className="absolute -bottom-20 right-0 h-72 w-72 rounded-full bg-pitch-light blur-3xl" />
+          </div>
+
+          <div className="relative grid items-center gap-8 p-8 md:grid-cols-[1.2fr_0.8fr] md:p-12">
+            <div>
+              <span className="eyebrow inline-flex items-center gap-2 rounded-full bg-gold px-3 py-1.5 text-ink">
+                Off-season · Monsoon sale
+              </span>
+              <h2 className="mt-4 font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+                Every bat,
+                <br />
+                flat <span className="text-gold">₹10,000</span>
+              </h2>
+              <p className="mt-4 max-w-md text-paper/80">
+                The rain&apos;s rolling into India and the season&apos;s winding down — so every
+                premium English willow blade in the store is now a flat ₹10,000. Same ping,
+                same balance, off-season price.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href="/shop" className="btn btn-gold px-7 py-3.5 text-sm">
+                  Shop the sale <ArrowRightIcon className="h-4 w-4" />
+                </Link>
+                <a
+                  href={`https://wa.me/${SITE.whatsapp}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn px-7 py-3.5 text-sm text-paper ring-1 ring-inset ring-paper/30 hover:bg-paper/10"
+                >
+                  Ask for a recommendation
+                </a>
+              </div>
+            </div>
+
+            <div className="relative hidden aspect-[4/5] overflow-hidden rounded-xl2 ring-1 ring-paper/10 md:block">
+              <Image
+                src={featured[1]?.images[0] ?? featured[0].images[0]}
+                alt="Cricket bats on monsoon-sale at MetroSports"
+                fill
+                sizes="30vw"
+                className="object-cover"
+              />
+              <div className="absolute right-3 top-3 rounded-full bg-gold px-3 py-1.5 font-display text-xs font-bold uppercase tracking-wide text-ink">
+                Flat ₹10,000
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -182,20 +215,28 @@ export default function HomePage() {
             />
           </div>
           <div className="order-1 lg:order-2">
-            <span className="eyebrow text-pitch">Our story</span>
+            <span className="eyebrow text-pitch">Our story · Est. 2025</span>
             <h2 className="mt-2 font-display text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl">
-              Cricketers first.<br />Always have been.
+              Started by a player,<br />for players.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-ink-soft">
-              MetroSports has spent decades putting the right bat in the right hands. We test
-              every cleft for grain, ping and balance so that whether you&apos;re facing the new
-              ball on a Sunday or smashing tennis-ball sixes in the gully, the willow does its job.
+              I started MetroSports in 2025 with one simple aim — that people should get a
+              genuinely good bat at an affordable price, where ping, balance and weight matter
+              above everything else.
+            </p>
+            <p className="mt-3 text-base leading-relaxed text-ink-soft">
+              It began in my own corporate cricket circle. Everyone wanted a bat under ₹10–15k and
+              they cared about the things that actually win games — pick-up, weight, and most of all
+              ping — but no one was sourcing bats around a player&apos;s real needs. Being a player
+              myself, I knew that pain. So I started buying from the trusted manufacturers I use for
+              my own bats — the ones people kept asking me to get for them because of their balance
+              and ping. That&apos;s how MetroSports was born.
             </p>
             <ul className="mt-6 flex flex-col gap-3">
               {[
-                "Each bat hand-checked for grain & weight",
-                "Genuine SS, DSC, SG, New Balance & TON stock",
-                "Knock-in & grip guidance with every order",
+                "Every bat hand-picked for ping, balance & weight",
+                "Sourced from the makers I trust for my own bats",
+                "Honest, player-to-player advice on what suits you",
               ].map((t) => (
                 <li key={t} className="flex items-center gap-3 text-sm text-ink">
                   <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-pitch/10 text-pitch">
@@ -220,10 +261,10 @@ export default function HomePage() {
           </div>
           <div className="relative mx-auto max-w-2xl">
             <h2 className="font-display text-3xl font-bold uppercase tracking-tight sm:text-4xl">
-              Not sure which willow?
+              Not sure which bat?
             </h2>
             <p className="mt-3 text-paper/80">
-              Tell us your game and budget — we&apos;ll pick the perfect bat for you.
+              Tell me your game and how you like your pick-up — I&apos;ll help you choose the right one.
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
               <Link href="/shop" className="btn btn-gold px-7 py-3.5 text-sm">
@@ -277,40 +318,3 @@ function Feature({
   );
 }
 
-function CategoryCard({
-  href,
-  eyebrow,
-  title,
-  text,
-  image,
-}: {
-  href: string;
-  eyebrow: string;
-  title: string;
-  text: string;
-  image: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="group relative flex aspect-[16/10] items-end overflow-hidden rounded-xl2 sm:aspect-[16/9]"
-    >
-      <Image
-        src={image}
-        alt={title}
-        fill
-        sizes="(max-width: 768px) 90vw, 45vw"
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent" />
-      <div className="relative p-6 text-paper">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">{eyebrow}</p>
-        <h3 className="mt-1 font-display text-2xl font-bold uppercase tracking-tight">{title}</h3>
-        <p className="mt-1 text-sm text-paper/85">{text}</p>
-        <span className="mt-3 inline-flex items-center gap-1.5 font-display text-sm font-semibold uppercase tracking-wide">
-          Shop now <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </span>
-      </div>
-    </Link>
-  );
-}

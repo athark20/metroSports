@@ -3,18 +3,20 @@
 // ───────────────────────────────────────────────────────────────────────────
 export const SITE = {
   name: "MetroSports",
-  tagline: "Hand-picked cricket bats since 1969",
+  tagline: "Premium willow, picked by a player",
   description:
-    "MetroSports crafts and curates premium English & Kashmir willow cricket bats from the game's most trusted makers — SS, DSC, SG, New Balance, TON and more.",
+    "MetroSports hand-sources premium English willow cricket bats — chosen for ping, balance and pick-up — from trusted makers like SS, DSC, SG, New Balance and TON. Started in 2025 by a player who knows what a good bat feels like.",
+  founded: "2025",
+  saleNote: "Off-season monsoon sale — every bat flat ₹10,000",
 
   // Currency shown across the store. Change symbol + code together.
   currency: { symbol: "₹", code: "INR", locale: "en-IN" },
 
   // Contact details — used in the footer, contact page and order confirmations.
-  phone: "+91 98765 43210",
-  whatsapp: "919876543210", // digits only, with country code — used for order links
+  phone: "+91 81778 33697",
+  whatsapp: "918177833697", // digits only, with country code — used for order links
   email: "orders@metrosports.shop",
-  address: "MetroSports Cricket Co., Sialkot Road, Jalandhar, Punjab",
+  address: "Flat No 25, B Wing, Sarita Garden Apartment, Shastrinagar, Kasarwadi, Pune 411034",
   instagram: "https://instagram.com/metrosports",
   facebook: "https://facebook.com/metrosports",
 };

@@ -18,8 +18,8 @@ export function Footer() {
           <h3 className="eyebrow text-ink-mute">Shop</h3>
           <ul className="mt-4 flex flex-col gap-2.5 text-sm text-ink-soft">
             <li><Link href="/shop" className="hover:text-ink">All bats</Link></li>
-            <li><Link href="/shop?willow=English+Willow" className="hover:text-ink">English willow</Link></li>
-            <li><Link href="/shop?willow=Kashmir+Willow" className="hover:text-ink">Kashmir willow</Link></li>
+            <li><Link href="/shop?sort=price-desc" className="hover:text-ink">Monsoon sale</Link></li>
+            <li><Link href="/shop?brand=SS" className="hover:text-ink">Shop by brand</Link></li>
             <li><Link href="/shop?sort=price-asc" className="hover:text-ink">Best value</Link></li>
           </ul>
         </div>
@@ -55,7 +55,7 @@ export function Footer() {
       <div className="border-t border-line">
         <div className="container-wide flex flex-col items-center justify-between gap-2 py-5 text-xs text-ink-mute sm:flex-row">
           <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
-          <p>Crafted for cricketers · English &amp; Kashmir willow specialists</p>
+          <p>Crafted for cricketers · Premium English willow specialists</p>
         </div>
       </div>
     </footer>

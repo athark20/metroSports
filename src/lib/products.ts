@@ -27,7 +27,10 @@ export type Product = {
   inStock: boolean;
 };
 
-export const BRANDS = ["SS", "DSC", "SG", "New Balance", "TON", "Somi"] as const;
+export const BRANDS = ["SS", "DSC", "SG", "New Balance", "TON"] as const;
+
+// Off-season monsoon sale — every bat flat at this price.
+export const SALE_PRICE = 10000;
 
 export const PRODUCTS: Product[] = [
   {
@@ -35,7 +38,7 @@ export const PRODUCTS: Product[] = [
     name: "SS Master 1959 Premium",
     brand: "SS",
     willow: "English Willow",
-    price: 18999,
+    price: SALE_PRICE,
     mrp: 22999,
     shortDescription:
       "Grade-1 English willow with a mid-blade sweet spot — SS's flagship all-rounder.",
@@ -65,7 +68,7 @@ export const PRODUCTS: Product[] = [
     name: "New Balance TC 650i",
     brand: "New Balance",
     willow: "English Willow",
-    price: 21999,
+    price: SALE_PRICE,
     mrp: 25999,
     shortDescription:
       "Premium English willow with NB's signature concaved profile and huge edges.",
@@ -95,7 +98,7 @@ export const PRODUCTS: Product[] = [
     name: "SG Nexus Xtreme",
     brand: "SG",
     willow: "English Willow",
-    price: 15999,
+    price: SALE_PRICE,
     mrp: 18499,
     shortDescription:
       "Tournament-grade English willow tuned for explosive timing and pick-up.",
@@ -125,7 +128,7 @@ export const PRODUCTS: Product[] = [
     name: "DSC Blu 222",
     brand: "DSC",
     willow: "English Willow",
-    price: 14499,
+    price: SALE_PRICE,
     mrp: 16999,
     shortDescription:
       "Bold blue English willow blade with massive edges and a low middle.",
@@ -145,7 +148,7 @@ export const PRODUCTS: Product[] = [
       { label: "Sweet spot", value: "Low" },
       { label: "Ball type", value: "Leather" },
     ],
-    images: ["/products/bat-12.jpeg", "/products/bat-15.jpeg"],
+    images: ["/products/dsc-blu-222.jpeg", "/products/bat-15.jpeg", "/products/bat-12.jpeg"],
     badges: ["Power profile"],
     featured: false,
     inStock: true,
@@ -155,7 +158,7 @@ export const PRODUCTS: Product[] = [
     name: "DSC Blu 200",
     brand: "DSC",
     willow: "English Willow",
-    price: 12999,
+    price: SALE_PRICE,
     mrp: 14999,
     shortDescription:
       "Balanced English willow all-rounder — clean ping, easy pick-up.",
@@ -175,7 +178,7 @@ export const PRODUCTS: Product[] = [
       { label: "Sweet spot", value: "Mid" },
       { label: "Ball type", value: "Leather" },
     ],
-    images: ["/products/bat-15.jpeg", "/products/bat-12.jpeg", "/products/bat-08.jpeg"],
+    images: ["/products/dsc-blu-200.jpeg", "/products/bat-15.jpeg", "/products/bat-12.jpeg"],
     badges: ["Best value"],
     featured: false,
     inStock: true,
@@ -185,7 +188,7 @@ export const PRODUCTS: Product[] = [
     name: "DSC Split 200",
     brand: "DSC",
     willow: "English Willow",
-    price: 9999,
+    price: SALE_PRICE,
     mrp: 11999,
     shortDescription:
       "Entry English willow with a lively green finish — a brilliant first leather bat.",
@@ -205,7 +208,7 @@ export const PRODUCTS: Product[] = [
       { label: "Sweet spot", value: "Mid-high" },
       { label: "Ball type", value: "Leather" },
     ],
-    images: ["/products/bat-10.jpeg", "/products/bat-08.jpeg"],
+    images: ["/products/dsc-split-200.jpeg", "/products/bat-10.jpeg", "/products/bat-08.jpeg"],
     badges: ["Great starter"],
     featured: false,
     inStock: true,
@@ -215,7 +218,7 @@ export const PRODUCTS: Product[] = [
     name: "TON Sunridges Player",
     brand: "TON",
     willow: "English Willow",
-    price: 16999,
+    price: SALE_PRICE,
     mrp: 19999,
     shortDescription:
       "Classic TON craftsmanship — premium English willow with a traditional profile.",
@@ -235,68 +238,8 @@ export const PRODUCTS: Product[] = [
       { label: "Sweet spot", value: "Mid" },
       { label: "Ball type", value: "Leather" },
     ],
-    images: ["/products/bat-12.jpeg", "/products/bat-01.jpeg"],
+    images: ["/products/ton.jpeg", "/products/bat-12.jpeg", "/products/bat-01.jpeg"],
     badges: ["Heritage"],
-    featured: false,
-    inStock: true,
-  },
-  {
-    slug: "sg-skipper-kashmir",
-    name: "SG Skipper Kashmir",
-    brand: "SG",
-    willow: "Kashmir Willow",
-    price: 3499,
-    mrp: 4299,
-    shortDescription:
-      "Durable Kashmir willow for tennis & soft-ball cricket — superb everyday value.",
-    description:
-      "The SG Skipper is a tough, dependable Kashmir willow bat built for gully, tennis-ball and soft-ball cricket. Full-size profile with a meaty middle and a hard-wearing finish that shrugs off heavy use. The perfect bat for weekend cricket and practice.",
-    features: [
-      "Solid Kashmir willow construction",
-      "Full size with a generous middle",
-      "Ready to play — no knock-in needed",
-      "Strong cane handle with grip",
-      "Great for tennis & soft-ball cricket",
-    ],
-    specs: [
-      { label: "Willow", value: "Kashmir Willow" },
-      { label: "Weight", value: "1200–1260 g" },
-      { label: "Handle", value: "Round cane" },
-      { label: "Sweet spot", value: "Mid" },
-      { label: "Ball type", value: "Tennis / Soft" },
-    ],
-    images: ["/products/bat-02.jpeg", "/products/bat-07.jpeg"],
-    badges: ["Tennis ball"],
-    featured: false,
-    inStock: true,
-  },
-  {
-    slug: "somi-storm-kashmir",
-    name: "Somi Storm Kashmir",
-    brand: "Somi",
-    willow: "Kashmir Willow",
-    price: 2999,
-    mrp: 3699,
-    shortDescription:
-      "Lightweight Kashmir willow built for fast hands and big tennis-ball hitting.",
-    description:
-      "The Somi Storm is a lively, lightweight Kashmir willow bat made for tennis-ball cricket where bat speed wins games. A slim pick-up and a high sweet spot make it easy to throw the hands at it, while a robust finish keeps it going season after season.",
-    features: [
-      "Seasoned Kashmir willow",
-      "Lightweight, fast pick-up",
-      "High sweet spot for tennis-ball play",
-      "Durable, ready-to-play finish",
-      "Comfortable rubber grip",
-    ],
-    specs: [
-      { label: "Willow", value: "Kashmir Willow" },
-      { label: "Weight", value: "1150–1210 g" },
-      { label: "Handle", value: "Round cane" },
-      { label: "Sweet spot", value: "High" },
-      { label: "Ball type", value: "Tennis / Soft" },
-    ],
-    images: ["/products/bat-07.jpeg", "/products/bat-03.jpeg"],
-    badges: ["Lightweight"],
     featured: false,
     inStock: true,
   },

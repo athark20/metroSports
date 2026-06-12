@@ -10,10 +10,10 @@ import { cn } from "@/lib/utils";
 import { CartDrawer } from "./CartDrawer";
 
 const NAV = [
-  { href: "/shop", label: "Shop" },
-  { href: "/shop?willow=English+Willow", label: "English Willow" },
-  { href: "/shop?willow=Kashmir+Willow", label: "Kashmir Willow" },
+  { href: "/shop", label: "Shop All" },
+  { href: "/shop?sort=price-desc", label: "Sale" },
   { href: "/about", label: "Our Story" },
+  { href: "/shipping", label: "Shipping" },
   { href: "/contact", label: "Contact" },
 ];
 
